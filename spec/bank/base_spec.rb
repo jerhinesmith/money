@@ -57,17 +57,17 @@ describe Money::Bank::Base do
     end
 
     it "returns true when currencies match" do
-      subject.send(:same_currency?, 'USD', 'USD').should be_true
-      subject.send(:same_currency?, Money::Currency.wrap('USD'), 'USD').should be_true
-      subject.send(:same_currency?, 'USD', Money::Currency.wrap('USD')).should be_true
-      subject.send(:same_currency?, Money::Currency.wrap('USD'), Money::Currency.wrap('USD')).should be_true
+      subject.send(:same_currency?, 'USD', 'USD').should be_truthy
+      subject.send(:same_currency?, Money::Currency.wrap('USD'), 'USD').should be_truthy
+      subject.send(:same_currency?, 'USD', Money::Currency.wrap('USD')).should be_truthy
+      subject.send(:same_currency?, Money::Currency.wrap('USD'), Money::Currency.wrap('USD')).should be_truthy
     end
 
     it "returns false when currencies do not match" do
-      subject.send(:same_currency?, 'USD', 'EUR').should be_false
-      subject.send(:same_currency?, Money::Currency.wrap('USD'), 'EUR').should be_false
-      subject.send(:same_currency?, 'USD', Money::Currency.wrap('EUR')).should be_false
-      subject.send(:same_currency?, Money::Currency.wrap('USD'), Money::Currency.wrap('EUR')).should be_false
+      subject.send(:same_currency?, 'USD', 'EUR').should be_falsey
+      subject.send(:same_currency?, Money::Currency.wrap('USD'), 'EUR').should be_falsey
+      subject.send(:same_currency?, 'USD', Money::Currency.wrap('EUR')).should be_falsey
+      subject.send(:same_currency?, Money::Currency.wrap('USD'), Money::Currency.wrap('EUR')).should be_falsey
     end
 
     it "raises an UnknownCurrency exception when an unknown currency is passed" do

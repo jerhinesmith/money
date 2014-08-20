@@ -3,6 +3,7 @@
 Gemfile.lock
 pkg/*
 bin/
+vendor/ruby
 
 # Rubinius
 *.rbc
